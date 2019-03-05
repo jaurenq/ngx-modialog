@@ -1,10 +1,10 @@
 {
-  "name": "ngx-modialog",
-  "version": "5.0.1",
+  "name": "ngx-modialog-7",
+  "version": "7.0.1",
   "description": "Modal / Dialog for Angular",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shlomiassaf/ngx-modialog.git"
+    "url": "https://github.com/brakowski/ngx-modialog.git"
   },
   "keywords": [
     "angular",
@@ -13,10 +13,11 @@
     "modal"
   ],
   "author": "Shlomi Assaf",
+  "contributors": ["Alexander Brakowski"],
   "license": "MIT",
-  "homepage": "https://github.com/shlomiassaf/ngx-modialog",
+  "homepage": "https://github.com/brakowski/ngx-modialog",
   "bugs": {
-    "url": "https://github.com/shlomiassaf/ngx-modialog/issues"
+    "url": "https://github.com/brakowski/ngx-modialog/issues"
   },
   "peerDependencies": {
     "@angular/common": "^7.2.7",

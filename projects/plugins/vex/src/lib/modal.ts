@@ -11,7 +11,7 @@ import {
   CSSBackdrop,
   CSSDialogContainer,
   PromiseCompleter
-} from 'ngx-modialog';
+} from 'ngx-modialog-7';
 
 import { DropInPresetBuilder } from './presets/dropin-preset';
 import { VexCSSDialogContainer } from './vex-css-dialog-container';

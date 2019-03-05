@@ -4,7 +4,7 @@ import {
   setAssignAlias,
   extend,
   arrayUnion
-} from 'ngx-modialog';
+} from 'ngx-modialog-7';
 import {
   BSMessageModal,
   BSMessageModalButtonConfig,

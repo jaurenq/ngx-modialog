@@ -5,7 +5,7 @@ import {
   Overlay,
   DROP_IN_TYPE,
   Modal as Modal_
-} from 'ngx-modialog';
+} from 'ngx-modialog-7';
 
 import { JSNativePresetBuilder } from './presets/js-native-preset';
 

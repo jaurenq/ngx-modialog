@@ -1,4 +1,4 @@
-import { Modal, FluentAssignMethod, extend } from 'ngx-modialog';
+import { Modal, FluentAssignMethod, extend } from 'ngx-modialog-7';
 import { BSMessageModal } from '../message-modal.component';
 import { MessageModalPresetBuilder, MessageModalPreset } from './message-modal-preset';
 

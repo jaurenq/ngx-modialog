@@ -4,7 +4,7 @@ import {
   ModalOpenContext,
   FluentAssignMethod,
   arrayUnion
-} from 'ngx-modialog';
+} from 'ngx-modialog-7';
 
 const DEFAULT_SETTERS = [
   'promptDefault'

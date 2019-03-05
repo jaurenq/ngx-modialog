@@ -17,8 +17,8 @@
       "es2015"
     ],
     "paths": {
-      "ngx-modialog": [
-        "../../../../dist/ngx-modialog"
+      "ngx-modialog-7": [
+        "../../../../dist/ngx-modialog-7"
       ]
     }
   },

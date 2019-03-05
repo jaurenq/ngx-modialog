@@ -8,7 +8,7 @@ import {
   Modal as Modal_,
   CSSBackdrop,
   PromiseCompleter
-} from 'ngx-modialog';
+} from 'ngx-modialog-7';
 
 import { BSModalContainer } from './modal-container.component';
 

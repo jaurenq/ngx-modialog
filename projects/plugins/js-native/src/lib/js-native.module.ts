@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { Modal as BaseModal } from 'ngx-modialog';
+import { Modal as BaseModal } from 'ngx-modialog-7';
 
 import { Modal } from './modal';
 

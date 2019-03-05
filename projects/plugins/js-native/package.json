@@ -1,8 +1,8 @@
 {
-  "name": "ngx-modialog/plugins/js-native",
+  "name": "ngx-modialog-7/plugins/js-native",
   "peerDependencies": {
-    "@angular/common": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "ngx-modialog": "*"
+    "@angular/common": "^7.2.7",
+    "@angular/core": "^7.2.7",
+    "ngx-modialog-7": "*"
   }
 }

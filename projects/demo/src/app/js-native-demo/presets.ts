@@ -1,9 +1,9 @@
 import {
     Modal,
     JSNativePresetBuilder
-} from 'ngx-modialog/plugins/js-native';
+} from 'ngx-modialog-7/plugins/js-native';
 
-export { JSNativePresetBuilder } from 'ngx-modialog/plugins/js-native';
+export { JSNativePresetBuilder } from 'ngx-modialog-7/plugins/js-native';
 
 export function alert(modal: Modal): JSNativePresetBuilder {
     return modal.alert().message('This is a native alert!');

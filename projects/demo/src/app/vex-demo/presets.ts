@@ -2,7 +2,7 @@ import {
     DialogFormModal,
     DropInPresetBuilder,
     Modal
-} from 'ngx-modialog/plugins/vex';
+} from 'ngx-modialog-7/plugins/vex';
 
 export function alert(modal: Modal): DropInPresetBuilder {
     return modal.alert()

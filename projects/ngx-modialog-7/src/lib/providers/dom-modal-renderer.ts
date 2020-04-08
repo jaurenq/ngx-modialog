@@ -16,7 +16,8 @@ export class DOMOverlayRenderer implements OverlayRenderer {
 
   private isDoc: boolean = !(typeof document === 'undefined' || !document);
 
-  constructor(private appRef: ApplicationRef, private injector: Injector) { }
+  constructor(private appRef: ApplicationRef, private injector: Injector) {
+  }
 
   render(dialog: DialogRef<any>, vcRef: ViewContainerRef, injector?: Injector): ComponentRef<ModalOverlay> {
     if (!injector) {
@@ -26,16 +27,19 @@ export class DOMOverlayRenderer implements OverlayRenderer {
     const cmpRef = createComponent({
       component: ModalOverlay,
       vcRef,
-      injector: Injector.create([
-        { provide: DialogRef, useValue: dialog }
-      ], injector)
+      injector: Injector.create({
+        providers: [
+          {provide: DialogRef, useValue: dialog}
+        ],
+        parent: injector
+      })
     });
 
     if (!vcRef) {
       this.appRef.attachView(cmpRef.hostView);
 
       // TODO: doesn't look like this is needed, explore. leaving now to be on the safe side.
-      dialog.onDestroy.subscribe( () => this.appRef.detachView(cmpRef.hostView) );
+      dialog.onDestroy.subscribe(() => this.appRef.detachView(cmpRef.hostView));
     }
 
     if (vcRef && dialog.inElement) {

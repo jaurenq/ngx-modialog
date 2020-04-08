@@ -23,7 +23,7 @@ export class OneButtonPresetBuilder extends MessageModalPresetBuilder<OneButtonP
   okBtn: FluentAssignMethod<string, this>;
   okBtnClass: FluentAssignMethod<string, this>;
 
-  constructor(modal: Modal, defaultValues: OneButtonPreset = undefined) {
+  constructor(modal: Modal, defaultValues?: OneButtonPreset) {
     super(extend<any>({
       modal: modal,
       okBtn: 'OK',

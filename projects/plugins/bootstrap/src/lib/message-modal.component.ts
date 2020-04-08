@@ -42,6 +42,7 @@ export class BSMessageModalTitle {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'modal-body',
   encapsulation: ViewEncapsulation.None,
   styles: [`.form-group {
@@ -61,6 +62,7 @@ export class BSMessageModalTitle {
     </div>
 `
 })
+// tslint:disable-next-line:component-class-suffix
 export class BSMessageModalBody {
   public context: MessageModalPreset & {
     showInput: boolean;
@@ -80,6 +82,7 @@ export class BSMessageModalBody {
  * Represents the modal footer for storing buttons.
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'modal-footer',
   encapsulation: ViewEncapsulation.None,
   template: `<div [ngClass]="dialog.context.footerClass">
@@ -88,6 +91,7 @@ export class BSMessageModalBody {
             (click)="onClick(btn, $event)">{{btn.caption}}</button>
 </div>`
 })
+// tslint:disable-next-line:component-class-suffix
 export class BSModalFooter {
   constructor(public dialog: DialogRef<MessageModalPreset>) {
   }
@@ -117,10 +121,12 @@ export class BSModalFooter {
  *      - Set button configuration (from 0 to n)
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'modal-content',
   encapsulation: ViewEncapsulation.None,
   template: `<modal-title></modal-title><modal-body></modal-body><modal-footer></modal-footer>`
 })
+// tslint:disable-next-line:component-class-suffix
 export class BSMessageModal implements ModalComponent<MessageModalPreset> {
   constructor(public dialog: DialogRef<MessageModalPreset>) {
   }

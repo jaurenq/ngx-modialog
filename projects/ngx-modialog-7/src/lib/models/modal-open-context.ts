@@ -32,9 +32,9 @@ export abstract class ModalOpenContextBuilder<T extends ModalOpenContext>
    */
   component: FluentAssignMethod<ModalComponent<T>, this>;
 
-  constructor(defaultValues: T = undefined,
-              initialSetters: string[] = undefined,
-              baseType: new () => T = undefined) {
+  constructor(defaultValues?: T,
+              initialSetters?: string[],
+              baseType?: new () => T) {
     super(
       defaultValues || <any>{},
       arrayUnion<string>(DEFAULT_SETTERS, initialSetters || []),
@@ -53,7 +53,7 @@ export abstract class ModalOpenContextBuilder<T extends ModalOpenContext>
    * @param viewContainer If set opens the modal inside the supplied viewContainer
    */
   open(viewContainer?: WideVCRef): DialogRef<T> {
-    let context: T = this.toJSON();
+    const context: T = this.toJSON();
 
     if (!(context.modal instanceof Modal)) {
       return <any>Promise.reject(new Error('Configuration Error: modal service not set.'));
@@ -61,7 +61,7 @@ export abstract class ModalOpenContextBuilder<T extends ModalOpenContext>
 
     this.$$beforeOpen(context);
 
-    let overlayConfig: OverlayConfig = {
+    const overlayConfig: OverlayConfig = {
       context: context,
       viewContainer: viewContainer
     };

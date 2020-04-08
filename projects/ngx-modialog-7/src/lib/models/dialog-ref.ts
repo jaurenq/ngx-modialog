@@ -47,7 +47,7 @@ export class DialogRef<T> {
 
   /**
    * Set a close/dismiss guard
-   * @param g
+   * @param guard
    */
   setCloseGuard(guard: CloseGuard): void {
     this.closeGuard = guard;
@@ -114,13 +114,13 @@ export class DialogRef<T> {
   private _destroy(): void {
     this._onDestroy.next(null);
     this._onDestroy.complete();
-    this.overlayRef.destroy()
+    this.overlayRef.destroy();
   }
 
-  private _fireHook<T>(name: 'beforeClose' | 'beforeDismiss'): Promise<T> {
-    const gurad = this.closeGuard,
-          fn: Function = gurad && typeof gurad[name] === 'function' && gurad[name];
+  private _fireHook<G>(name: 'beforeClose' | 'beforeDismiss'): Promise<G> {
+    const guard = this.closeGuard,
+          fn: Function = guard && typeof guard[name] === 'function' && guard[name];
 
-    return Promise.resolve(fn ? fn.call(gurad) : false);
+    return Promise.resolve(fn ? fn.call(guard) : false);
   }
 }

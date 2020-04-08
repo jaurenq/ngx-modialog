@@ -10,7 +10,7 @@ import {
   ViewContainerRef,
   ViewEncapsulation,
   Renderer2,
-  TemplateRef
+  TemplateRef, HostListener
 } from '@angular/core';
 
 import { PromiseCompleter, supportsKey } from '../framework/utils';
@@ -31,19 +31,18 @@ export interface EmbedComponentConfig {
  * Represents the modal overlay.
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'modal-overlay',
-  host: {
-    '(body:keydown)': 'documentKeypress($event)'
-  },
   encapsulation: ViewEncapsulation.None,
   templateUrl: './overlay.component.html'
 })
+// tslint:disable-next-line:component-class-suffix
 export class ModalOverlay extends BaseDynamicComponent {
   private beforeDestroyHandlers: Array<() => Promise<void>>;
 
-  @ViewChild('container', {read: ElementRef}) public container: ElementRef;
-  @ViewChild('innerView', {read: ViewContainerRef}) public innerVcr: ViewContainerRef;
-  @ViewChild('template') public template: TemplateRef<any>;
+  @ViewChild('container', {read: ElementRef, static: true}) public container: ElementRef;
+  @ViewChild('innerView', {read: ViewContainerRef, static: true }) public innerVcr: ViewContainerRef;
+  @ViewChild('template', { static: true }) public template: TemplateRef<any>;
 
   constructor(private dialogRef: DialogRef<any>,
               private vcr: ViewContainerRef,
@@ -56,15 +55,15 @@ export class ModalOverlay extends BaseDynamicComponent {
   /**
    * @internal
    */
-  getProjectables<T> (content: ContainerContent): any[][] {
+  getProjectables<T>(content: ContainerContent): any[][] {
 
     let nodes: any[];
     if (typeof content === 'string') {
-      nodes = [ [this.renderer.createText(`${content}`)] ];
+      nodes = [[this.renderer.createText(`${content}`)]];
     } else if (content instanceof TemplateRef) {
-      nodes = [ this.vcr.createEmbeddedView(content, { $implicit: this.dialogRef.context, dialogRef: this.dialogRef }).rootNodes ];
+      nodes = [this.vcr.createEmbeddedView(content, {$implicit: this.dialogRef.context, dialogRef: this.dialogRef}).rootNodes];
     } else {
-      nodes = [ this.embedComponent({ component: content }).rootNodes ];
+      nodes = [this.embedComponent({component: content}).rootNodes];
     }
 
     return nodes;
@@ -73,7 +72,7 @@ export class ModalOverlay extends BaseDynamicComponent {
   embedComponent(config: EmbedComponentConfig): EmbeddedViewRef<EmbedComponentConfig> {
     const ctx: EmbedComponentConfig & { injector: Injector } = <any>config;
 
-    return this.vcr.createEmbeddedView(this.template, <any> {
+    return this.vcr.createEmbeddedView(this.template, <any>{
       $implicit: ctx
     });
   }
@@ -95,7 +94,7 @@ export class ModalOverlay extends BaseDynamicComponent {
       right: 0,
       'z-index': 1500
     };
-    Object.keys(style).forEach( k => this.setStyle(k, style[k]) );
+    Object.keys(style).forEach(k => this.setStyle(k, style[k]));
   }
 
   insideElement(): void {
@@ -109,7 +108,7 @@ export class ModalOverlay extends BaseDynamicComponent {
       bottom: 0,
       right: 0
     };
-    Object.keys(style).forEach( k => this.setStyle(k, style[k]) );
+    Object.keys(style).forEach(k => this.setStyle(k, style[k]));
   }
 
   /**
@@ -147,14 +146,16 @@ export class ModalOverlay extends BaseDynamicComponent {
     let target: Element;
     const elListener = event => target = event.target as any;
     const docListener = event => {
-      if (this.dialogRef.context.isBlocking || !this.dialogRef.overlay.isTopMost(this.dialogRef) ) {
+      if (this.dialogRef.context.isBlocking || !this.dialogRef.overlay.isTopMost(this.dialogRef)) {
         return;
       }
 
       let current: any = event.target;
 
       // on click, this will hit.
-      if (current === target) return;
+      if (current === target) {
+        return;
+      }
 
       // on mouse down -> drag -> release the current might not be 'target', it might be
       // a sibling or a child (i.e: not part of the tree-up direction). It might also be a release
@@ -163,7 +164,7 @@ export class ModalOverlay extends BaseDynamicComponent {
         if (current === element) {
           return;
         }
-      } while (current.parentNode && ( current = current.parentNode ));
+      } while (current.parentNode && (current = current.parentNode));
       this.dialogRef.dismiss();
     };
 
@@ -204,13 +205,15 @@ export class ModalOverlay extends BaseDynamicComponent {
       }, 1000);
 
       const resolve = () => {
-        if (id === null) return;
+        if (id === null) {
+          return;
+        }
 
         clearTimeout(id);
         completer.resolve();
       };
 
-      Promise.all(this.beforeDestroyHandlers.map( fn => fn() ))
+      Promise.all(this.beforeDestroyHandlers.map(fn => fn()))
         .then(resolve)
         .catch(resolve);
 
@@ -234,9 +237,12 @@ export class ModalOverlay extends BaseDynamicComponent {
     this.beforeDestroyHandlers.push(fn);
   }
 
+  @HostListener('body:keydown', ['$event'])
   documentKeypress(event: KeyboardEvent) {
     // check that this modal is the last in the stack.
-    if (!this.dialogRef.overlay.isTopMost(this.dialogRef)) return;
+    if (!this.dialogRef.overlay.isTopMost(this.dialogRef)) {
+      return;
+    }
 
 
     if (supportsKey(event.keyCode, <any>this.dialogRef.context.keyboard)) {

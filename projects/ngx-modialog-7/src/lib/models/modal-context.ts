@@ -5,16 +5,16 @@ import { OverlayContext, OverlayContextBuilder } from './overlay-context';
 export const DEFAULT_VALUES = {};
 
 const DEFAULT_SETTERS = [
-    'message'
+  'message'
 ];
 
 export class ModalContext extends OverlayContext {
-    /**
-     * The core message to display.
-     * A modal might have an extended message (e.g: HTML message) or other fields (e.g: title) but
-     * all models, at core, convey a message thus message is common to all modals.
-     */
-    message: string;
+  /**
+   * The core message to display.
+   * A modal might have an extended message (e.g: HTML message) or other fields (e.g: title) but
+   * all models, at core, convey a message thus message is common to all modals.
+   */
+  message: string;
 }
 
 /**
@@ -22,22 +22,22 @@ export class ModalContext extends OverlayContext {
  * a modal choose it's behaviour.
  */
 export class ModalContextBuilder<T extends ModalContext> extends OverlayContextBuilder<T> {
-    /**
-     * The core message to display.
-     * A modal might have an extended message (e.g: HTML message) or other fields (e.g: title) but
-     * all models, at core, convey a message thus message is common to all modals.
-     */
-    message: FluentAssignMethod<string, this>;
+  /**
+   * The core message to display.
+   * A modal might have an extended message (e.g: HTML message) or other fields (e.g: title) but
+   * all models, at core, convey a message thus message is common to all modals.
+   */
+  message: FluentAssignMethod<string, this>;
 
-    constructor(
-        defaultValues: T | T[] = undefined,
-        initialSetters: string[] = undefined,
-        baseType: new () => T = undefined
-    ) {
-        super(
-            extend<any>(DEFAULT_VALUES, defaultValues || {}),
-            arrayUnion<string>(DEFAULT_SETTERS, initialSetters || []),
-            baseType
-        );
-    }
+  constructor(
+    defaultValues?: T | T[],
+    initialSetters?: string[],
+    baseType?: new () => T
+  ) {
+    super(
+      extend<any>(DEFAULT_VALUES, defaultValues || {}),
+      arrayUnion<string>(DEFAULT_SETTERS, initialSetters || []),
+      baseType
+    );
+  }
 }

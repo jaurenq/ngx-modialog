@@ -19,17 +19,21 @@ import { TwoButtonPresetBuilder, PromptPresetBuilder } from './presets/two-butto
 // TODO: consolidate dup code
 const isDoc: boolean = !(typeof document === 'undefined' || !document);
 
-let animationClass: string = 'show';
+let animationClass = 'show';
 
 /**
  * Execute this method to flag that you are working with Bootstrap version 4.
  * @deprecated From version 5, ngx-modialog's bootstrap plugin is set to work with version 4 of bootstrap by default.
  */
-export function bootstrap4Mode(): void { }
+export function bootstrap4Mode(): void {
+}
+
 /**
  * Execute this method to flag that you are working with Bootstrap version 3.
  */
-export function bootstrap3Mode(): void { animationClass = 'in'; }
+export function bootstrap3Mode(): void {
+  animationClass = 'in';
+}
 
 @Injectable()
 export class Modal extends Modal_ {
@@ -54,9 +58,9 @@ export class Modal extends Modal_ {
     const backdropRef = this.createBackdrop(dialogRef, CSSBackdrop);
     const containerRef = this.createContainer(dialogRef, BSModalContainer, content);
 
-    let overlay = dialogRef.overlayRef.instance;
-    let backdrop = backdropRef.instance;
-    let container = containerRef.instance;
+    const overlay = dialogRef.overlayRef.instance;
+    const backdrop = backdropRef.instance;
+    const container = containerRef.instance;
 
     dialogRef.inElement ? overlay.insideElement() : overlay.fullscreen();
 
@@ -83,9 +87,12 @@ export class Modal extends Modal_ {
       backdrop.removeClass(animationClass);
       container.removeClass(animationClass);
 
-      combineLatest.call(backdrop.myAnimationEnd$(), container.myAnimationEnd$(), (s1, s2) => [s1,s2])
-        .subscribe( sources => {
-          isDoc && this.overlay.groupStackLength(dialogRef) === 1 && document.body.classList.remove('modal-open');
+      combineLatest.call(backdrop.myAnimationEnd$(), container.myAnimationEnd$(), (s1, s2) => [s1, s2])
+        .subscribe(sources => {
+          if (isDoc && this.overlay.groupStackLength(dialogRef) === 1) {
+            document.body.classList.remove('modal-open');
+          }
+
           completer.resolve();
         });
 

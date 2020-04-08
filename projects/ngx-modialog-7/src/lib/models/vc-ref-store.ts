@@ -15,15 +15,15 @@ function setVCRef(key: string, vcRef: ViewContainerRef): void {
 }
 
 function delVCRef(key: string, vcRef?: ViewContainerRef): void {
-    if (!vcRef) {
-      vcRefCollection[key] = [];
-    } else {
-      const coll = vcRefCollection[key] || [],
-            idx = coll.indexOf(vcRef);
-      if (idx > -1) {
-        coll.splice(idx, 1);
-      }
+  if (!vcRef) {
+    vcRefCollection[key] = [];
+  } else {
+    const coll = vcRefCollection[key] || [],
+      idx = coll.indexOf(vcRef);
+    if (idx > -1) {
+      coll.splice(idx, 1);
     }
+  }
 }
 
 /**
@@ -31,4 +31,4 @@ function delVCRef(key: string, vcRef?: ViewContainerRef): void {
  * This, with the OverlayTarget directive makes it easy to block the overlay inside an element
  * without having to use the angular query boilerplate.
  */
-export const vcRefStore = { getVCRef, setVCRef, delVCRef };
+export const vcRefStore = {getVCRef, setVCRef, delVCRef};

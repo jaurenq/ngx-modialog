@@ -11,7 +11,8 @@ export function unsupportedDropInError(dropInName: string): Error {
 }
 
 export abstract class Modal {
-  constructor(public overlay: Overlay) { }
+  constructor(public overlay: Overlay) {
+  }
 
 
   alert(): ModalControllingContextBuilder<any> {
@@ -33,16 +34,16 @@ export abstract class Modal {
    */
   open(content: ContainerContent, config?: OverlayConfig): DialogRef<any> {
     config = config || {} as any;
-    let dialogs = this.overlay.open(config, this.constructor);
+    const dialogs = this.overlay.open(config, this.constructor);
 
     if (dialogs.length > 1) {
       console.warn(`Attempt to open more then 1 overlay detected.
-      Multiple modal copies are not supported at the moment, 
+      Multiple modal copies are not supported at the moment,
       only the first viewContainer will display.`);
     }
     // TODO:  Currently supporting 1 view container, hence working on dialogs[0].
     //        upgrade to multiple containers.
-    return this.create(dialogs[0], content)
+    return this.create(dialogs[0], content);
   }
 
   /**
@@ -62,7 +63,7 @@ export abstract class Modal {
     ContainerComponent: Class<T>,
     content: ContainerContent): ComponentRef<T> {
 
-    let nodes: any[] = dialogRef.overlayRef.instance.getProjectables(content);
+    const nodes: any[] = dialogRef.overlayRef.instance.getProjectables(content);
     return dialogRef.overlayRef.instance.addComponent<T>(ContainerComponent, nodes);
   }
 

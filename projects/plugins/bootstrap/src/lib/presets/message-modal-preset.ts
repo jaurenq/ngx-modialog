@@ -10,7 +10,7 @@ import {
   BSMessageModalButtonConfig,
   BSMessageModalButtonHandler
 } from '../message-modal.component';
-import { BSModalContext, BSModalContextBuilder }  from '../modal-context';
+import { BSModalContext, BSModalContextBuilder } from '../modal-context';
 
 
 const DEFAULT_VALUES = {
@@ -92,7 +92,7 @@ export interface MessageModalPreset extends BSModalContext {
  * Use derived implementation.
  */
 export abstract class MessageModalPresetBuilder<T extends MessageModalPreset>
-                                                extends BSModalContextBuilder<T> {
+  extends BSModalContextBuilder<T> {
 
   /**
    * A Class for the header (title) container.
@@ -142,9 +142,9 @@ export abstract class MessageModalPresetBuilder<T extends MessageModalPreset>
    */
   footerClass: FluentAssignMethod<string, this>;
 
-  constructor(defaultValues: T = undefined,
-              initialSetters: string[] = undefined,
-              baseType: new () => T = undefined) {
+  constructor(defaultValues?: T,
+              initialSetters?: string[],
+              baseType?: new () => T) {
     super(
       extend<any>(extend({buttons: []}, DEFAULT_VALUES), defaultValues || {}),
       arrayUnion<string>(DEFAULT_SETTERS, initialSetters || []),
@@ -155,13 +155,13 @@ export abstract class MessageModalPresetBuilder<T extends MessageModalPreset>
   }
 
   addButton(css: string, caption: string, onClick: BSMessageModalButtonHandler): this {
-    let btn = {
+    const btn = {
       cssClass: css,
       caption: caption,
       onClick: onClick
     };
 
-    let key = privateKey('buttons');
+    const key = privateKey('buttons');
     (this[key] as BSMessageModalButtonConfig[]).push(btn);
 
     return this;

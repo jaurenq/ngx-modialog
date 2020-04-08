@@ -42,8 +42,9 @@ export class OverlayContext {
   keyboard: Array<number> | number;
 
   normalize(): void {
-    if (this.isBlocking !== false)
+    if (this.isBlocking !== false) {
       this.isBlocking = true;
+    }
 
     if (this.keyboard === null) {
       this.keyboard = [];
@@ -83,9 +84,9 @@ export class OverlayContextBuilder<T extends OverlayContext> extends FluentAssig
   keyboard: FluentAssignMethod<Array<number> | number, this>;
 
 
-  constructor(defaultValues: T | T[] = undefined,
-              initialSetters: string[] = undefined,
-              baseType: new () => T = undefined) {
+  constructor(defaultValues?: T | T[],
+              initialSetters?: string[],
+              baseType?: new () => T) {
     super(
       extend<any>(DEFAULT_VALUES, defaultValues || {}),
       arrayUnion<string>(DEFAULT_SETTERS, initialSetters || []),

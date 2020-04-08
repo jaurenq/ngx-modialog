@@ -44,8 +44,8 @@ export class Overlay {
    * @param group A token to associate the new overlay with, used for reference (stacks usually)
    */
   open<T extends OverlayContext>(config: OverlayConfig, group?: any): DialogRef<T>[] {
-    let viewContainer = config.viewContainer,
-        containers: Array<ViewContainerRef> = [];
+    const viewContainer = config.viewContainer;
+    let containers: Array<ViewContainerRef> = [];
 
     if (typeof viewContainer === 'string') {
       containers = vcRefStore.getVCRef(viewContainer as string);
@@ -74,10 +74,10 @@ export class Overlay {
       config.injector = this.injector;
     }
 
-    let dialog = new DialogRef<any>(this, config.context || {});
+    const dialog = new DialogRef<any>(this, config.context || {});
     dialog.inElement = config.context && !!config.context.inElement;
 
-    let cmpRef = renderer.render(dialog, vcRef, config.injector);
+    const cmpRef = renderer.render(dialog, vcRef, config.injector);
 
     Object.defineProperty(dialog, 'overlayRef', {value: cmpRef});
     _stack.pushManaged(dialog, group);

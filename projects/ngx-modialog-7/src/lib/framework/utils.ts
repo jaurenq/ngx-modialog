@@ -4,14 +4,14 @@
  * @param m2
  */
 export function extend<T>(m1: any, m2: any): T {
-  var m: T = <T>{};
-  for (var attr in m1) {
+  const m: T = <T>{};
+  for (const attr in m1) {
     if (m1.hasOwnProperty(attr)) {
       (<any>m)[attr] = (<any>m1)[attr];
     }
   }
 
-  for (var attr in m2) {
+  for (const attr in m2) {
     if (m2.hasOwnProperty(attr)) {
       (<any>m)[attr] = (<any>m2)[attr];
     }
@@ -33,10 +33,14 @@ export function arrayUnion<T>(arr1: any[], arr2: any[]): T[] {
 
 /**
  * Returns true if the config supports a given key.
- * @param key
+ * @param keyCode
+ * @param config
  */
 export function supportsKey(keyCode: number, config: Array<number>): boolean {
-  if (!Array.isArray(config)) return config === null ? false : true;
+  if (!Array.isArray(config)) {
+    return config !== null;
+  }
+
   return config.indexOf(keyCode) > -1;
 }
 
@@ -69,7 +73,7 @@ export function toStyleString(obj: any | CSSStyleDeclaration): string {
 
 export class PromiseCompleter<R> {
   promise: Promise<R>;
-  resolve: (value?: R|PromiseLike<R>) => void;
+  resolve: (value?: R | PromiseLike<R>) => void;
   reject: (error?: any, stackTrace?: string) => void;
 
   constructor() {
@@ -80,8 +84,7 @@ export class PromiseCompleter<R> {
   }
 }
 
-export interface Class<T> {
-  new(...args: any[]): T;
-}
+export type Class<T> = new(...args: any[]) => T;
 
-export function noop() { }
+export function noop() {
+}

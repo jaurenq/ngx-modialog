@@ -8,7 +8,7 @@ import {
 
 import { DialogRef } from '../models/dialog-ref';
 import { vcRefStore } from '../models/vc-ref-store';
-import { Overlay } from "./overlay.service";
+import { Overlay } from './overlay.service';
 
 /**
  * A directive use to signal the overlay that the host of this directive
@@ -16,8 +16,10 @@ import { Overlay } from "./overlay.service";
  * (if non blocking)
  */
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[overlayDialogBoundary]'
 })
+// tslint:disable-next-line:directive-class-suffix
 export class OverlayDialogBoundary {
   constructor(el: ElementRef, dialogRef: DialogRef<any>) {
     if (dialogRef && el.nativeElement) {
@@ -28,8 +30,10 @@ export class OverlayDialogBoundary {
 }
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[overlayTarget]'
 })
+// tslint:disable-next-line:directive-class-suffix
 export class OverlayTarget implements OnDestroy {
   @Input('overlayTarget') set targetKey(value: string) {
     this._targetKey = value;
@@ -40,7 +44,8 @@ export class OverlayTarget implements OnDestroy {
 
   private _targetKey: string;
 
-  constructor(private vcRef: ViewContainerRef) {}
+  constructor(private vcRef: ViewContainerRef) {
+  }
 
   ngOnDestroy() {
     if (this._targetKey) {

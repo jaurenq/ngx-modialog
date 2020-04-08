@@ -30,7 +30,7 @@ export abstract class AbstractTwoButtonPresetBuilder extends MessageModalPresetB
   cancelBtn: FluentAssignMethod<string, this>;
   cancelBtnClass: FluentAssignMethod<string, this>;
 
-  constructor(modal: Modal, defaultValues: TwoButtonPreset = undefined,
+  constructor(modal: Modal, defaultValues?: TwoButtonPreset,
               initialSetters: string[] = []) {
     super(extend<any>({
       modal: modal,
@@ -61,7 +61,7 @@ export abstract class AbstractTwoButtonPresetBuilder extends MessageModalPresetB
  */
 export class TwoButtonPresetBuilder extends AbstractTwoButtonPresetBuilder {
 
-  constructor(modal: Modal, defaultValues: TwoButtonPreset = undefined) {
+  constructor(modal: Modal, defaultValues?: TwoButtonPreset) {
     super(modal, defaultValues);
   }
 
@@ -88,7 +88,7 @@ export class PromptPresetBuilder extends AbstractTwoButtonPresetBuilder {
   placeholder: FluentAssignMethod<string, this>;
   defaultValue: FluentAssignMethod<string, this>;
 
-  constructor(modal: Modal, defaultValues: PromptPreset = undefined) {
+  constructor(modal: Modal, defaultValues?: PromptPreset) {
     super(modal, extend<any>({showInput: true, defaultValue: ''}, defaultValues || {}),
       ['placeholder', 'defaultValue']);
   }

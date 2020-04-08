@@ -20,9 +20,7 @@ export type WideVCRef = ViewContainerRef | string;
 
 export type ContainerContent = string | TemplateRef<any> | Type<any>;
 
-export interface OverlayPlugin extends Function {
-  <T>(component: any, dialogRef: DialogRef<T>, config: OverlayConfig): DialogRef<any>;
-}
+export type OverlayPlugin = <T>(component: any, dialogRef: DialogRef<T>, config: OverlayConfig) => DialogRef<any>;
 
 export interface OverlayConfig {
   /**

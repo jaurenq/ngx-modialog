@@ -12,7 +12,7 @@ import { createComponent, CreateComponentArgs } from '../framework/createCompone
 const BROWSER_PREFIX = ['webkit', 'moz', 'MS', 'o', ''];
 
 function register(eventName, element, cb) {
-  BROWSER_PREFIX.forEach( p => {
+  BROWSER_PREFIX.forEach(p => {
     element.addEventListener(p ? p + eventName : eventName.toLowerCase(), cb, false);
   });
 }
@@ -40,10 +40,13 @@ export class BaseDynamicComponent implements OnDestroy {
   protected animationEnd: Subject<TransitionEvent | AnimationEvent>;
 
   constructor(protected el: ElementRef,
-              protected renderer: Renderer2) {}
+              protected renderer: Renderer2) {
+  }
 
   activateAnimationListener() {
-    if (this.animationEnd) return;
+    if (this.animationEnd) {
+      return;
+    }
     this.animationEnd = new Subject<TransitionEvent | AnimationEvent>();
     this.animationEnd$ = this.animationEnd.asObservable();
     register('TransitionEnd', this.el.nativeElement, (e: TransitionEvent) => this.onEnd(e));
@@ -66,13 +69,15 @@ export class BaseDynamicComponent implements OnDestroy {
 
   addClass(css: string, forceReflow: boolean = false): void {
     css.split(' ')
-      .forEach( c => this.renderer.addClass(this.el.nativeElement, c) );
-    if (forceReflow) this.forceReflow();
+      .forEach(c => this.renderer.addClass(this.el.nativeElement, c));
+    if (forceReflow) {
+      this.forceReflow();
+    }
   }
 
   removeClass(css: string, forceReflow: boolean = false): void {
     css.split(' ')
-      .forEach( c => this.renderer.removeClass(this.el.nativeElement, c) );
+      .forEach(c => this.renderer.removeClass(this.el.nativeElement, c));
     if (forceReflow) {
       this.forceReflow();
     }

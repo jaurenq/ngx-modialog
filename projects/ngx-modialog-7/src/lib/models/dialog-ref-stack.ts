@@ -19,7 +19,7 @@ export class DialogRefStack<T> {
   }
 
   closeAll(result: any = null): void {
-    for (let i=0, len=this._stack.length; i<len; i++) {
+    for (let i = 0, len = this._stack.length; i < len; i++) {
       this._stack.pop().close(result);
     }
   }
@@ -64,7 +64,7 @@ export class DialogRefStack<T> {
   }
 
   indexOf(dialogRef: DialogRef<T>): number {
-     return this._stack.indexOf(dialogRef);
+    return this._stack.indexOf(dialogRef);
   }
 
   groupOf(dialogRef: DialogRef<T>): any {
@@ -72,9 +72,9 @@ export class DialogRefStack<T> {
   }
 
   groupBy(group: any): DialogRef<T>[] {
-    let arr = [];
+    const arr = [];
     if (group) {
-      this._stackMap.forEach( (value, key) => {
+      this._stackMap.forEach((value, key) => {
         if (value === group) {
           arr.push(key);
         }
@@ -86,7 +86,7 @@ export class DialogRefStack<T> {
   groupLength(group: any): number {
     let count = 0;
     if (group) {
-      this._stackMap.forEach( (value) => {
+      this._stackMap.forEach((value) => {
         if (value === group) {
           count++;
         }

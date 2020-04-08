@@ -81,7 +81,7 @@ export class DOMOutsideEventPlugin { // extends EventManagerPlugin
             let fn: Function;
             setTimeout(() => fn = onceOnOutside(), 0);
             return () => {
-                if (fn) fn();
+                if (fn) { fn(); }
             };
         });
     }

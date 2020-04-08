@@ -14,7 +14,7 @@ export interface CreateComponentArgs {
 }
 
 export function createComponent(instructions: CreateComponentArgs): ComponentRef<any> {
-  const injector: Injector =  instructions.injector || instructions.vcRef.parentInjector;
+  const injector: Injector =  instructions.injector || instructions.vcRef.injector;
   const cmpFactory: ComponentFactory<any>
     = injector.get(ComponentFactoryResolver).resolveComponentFactory(instructions.component);
 

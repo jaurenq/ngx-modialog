@@ -11,6 +11,7 @@ import { BaseDynamicComponent } from './base-dynamic-component';
  * Represents the modal backdrop shaped by CSS.
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'css-backdrop',
   host: {
     '[attr.class]': 'cssClass',
@@ -19,6 +20,7 @@ import { BaseDynamicComponent } from './base-dynamic-component';
   encapsulation: ViewEncapsulation.None,
   template: ``
 })
+// tslint:disable-next-line:component-class-suffix
 export class CSSBackdrop extends BaseDynamicComponent {
   public cssClass: string;
   public styleStr: string;
@@ -34,6 +36,6 @@ export class CSSBackdrop extends BaseDynamicComponent {
       width: '100%',
       height: '100%'
     };
-    Object.keys(style).forEach( k => this.setStyle(k, style[k]) );
+    Object.keys(style).forEach(k => this.setStyle(k, style[k]));
   }
 }

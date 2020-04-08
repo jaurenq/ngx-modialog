@@ -20,7 +20,7 @@ import {
     OverlayDialogBoundary,
     OverlayTarget
   ],
-  imports: [ CommonModule ],
+  imports: [CommonModule],
   exports: [
     CSSBackdrop,
     CSSDialogContainer,
@@ -50,7 +50,7 @@ export class ModalModule {
       providers: [
         {provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: entryComponents, multi: true}
       ]
-    }
+    };
   }
 
   /**

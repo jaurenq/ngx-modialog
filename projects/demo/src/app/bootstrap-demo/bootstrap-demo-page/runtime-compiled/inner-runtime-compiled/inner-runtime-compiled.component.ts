@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DialogRef } from "ngx-modialog-7";
+import { DialogRef } from "ngx-modialog-11";
 
 
 @Component({

@@ -1,5 +1,5 @@
-import { FluentAssign, FluentAssignMethod } from './../framework/fluent-assign';
-import { extend, arrayUnion } from './../framework/utils';
+import { FluentAssign, FluentAssignMethod } from '../framework/fluent-assign';
+import { extend, arrayUnion } from '../framework/utils';
 import { DialogRef } from './dialog-ref';
 import { WideVCRef, OverlayConfig } from './tokens';
 

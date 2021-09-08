@@ -8,7 +8,7 @@ import {
 
 import { ModalOverlay } from '../overlay/index';
 import { DialogRef } from './dialog-ref';
-import { OverlayContext } from '../models/overlay-context';
+import { OverlayContext } from './overlay-context';
 
 export enum DROP_IN_TYPE {
   alert,

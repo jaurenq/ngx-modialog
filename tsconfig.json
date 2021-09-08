@@ -17,16 +17,16 @@
       "dom"
     ],
     "paths": {
-      "ngx-modialog-7": [
-        "projects/ngx-modialog-7/src/public_api.ts"
+      "ngx-modialog-11": [
+        "projects/ngx-modialog-11/src/public_api.ts"
       ],
-      "ngx-modialog-7/plugins/bootstrap": [
+      "ngx-modialog-11/plugins/bootstrap": [
         "projects/plugins/bootstrap/src/public_api.ts"
       ],
-      "ngx-modialog-7/plugins/vex": [
+      "ngx-modialog-11/plugins/vex": [
         "projects/plugins/vex/src/public_api.ts"
       ],
-      "ngx-modialog-7/plugins/js-native": [
+      "ngx-modialog-11/plugins/js-native": [
         "projects/plugins/js-native/src/public_api.ts"
       ]
     }

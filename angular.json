@@ -4,37 +4,37 @@
   "newProjectRoot": "projects",
   "projects": {
     "ngx-modialog": {
-      "root": "projects/ngx-modialog-7",
-      "sourceRoot": "projects/ngx-modialog-7/src",
+      "root": "projects/ngx-modialog-11",
+      "sourceRoot": "projects/ngx-modialog-11/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-modialog-7/tsconfig.lib.json",
-            "project": "projects/ngx-modialog-7/ng-package.json"
+            "tsConfig": "projects/ngx-modialog-11/tsconfig.lib.json",
+            "project": "projects/ngx-modialog-11/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/ngx-modialog-7/ng-package.prod.json"
+              "project": "projects/ngx-modialog-11/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-modialog-7/src/test.ts",
-            "tsConfig": "projects/ngx-modialog-7/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-modialog-7/karma.conf.js"
+            "main": "projects/ngx-modialog-11/src/test.ts",
+            "tsConfig": "projects/ngx-modialog-11/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-modialog-11/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-modialog-7/tsconfig.lib.json",
-              "projects/ngx-modialog-7/tsconfig.spec.json"
+              "projects/ngx-modialog-11/tsconfig.lib.json",
+              "projects/ngx-modialog-11/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

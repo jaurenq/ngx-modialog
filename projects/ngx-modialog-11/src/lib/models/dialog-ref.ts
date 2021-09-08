@@ -3,8 +3,8 @@ import { ComponentRef } from '@angular/core';
 
 import { PromiseCompleter } from '../framework/utils';
 import { Overlay, ModalOverlay } from '../overlay/index';
-import { CloseGuard } from '../models/tokens';
-import { DialogBailOutError } from '../models/errors';
+import { CloseGuard } from './tokens';
+import { DialogBailOutError } from './errors';
 
 /**
  * API to an open modal window.

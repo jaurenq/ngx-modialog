@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {Modal} from 'ngx-modialog-7';
+import {Modal} from 'ngx-modialog-11';
 import {
     TwoButtonPreset,
     TwoButtonPresetBuilder
-} from 'ngx-modialog-7/plugins/bootstrap';
+} from 'ngx-modialog-11/plugins/bootstrap';
 
 
 @Component({

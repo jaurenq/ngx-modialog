@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ModalModule, Modal as BaseModal } from 'ngx-modialog-7';
+import { ModalModule, Modal as BaseModal } from 'ngx-modialog-11';
 
 import { Modal } from './modal';
 import { DialogFormModal, FormDropIn, VEXDialogButtons } from './dialog-form-modal';

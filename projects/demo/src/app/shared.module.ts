@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ModalModule } from 'ngx-modialog-7';
+import { ModalModule } from 'ngx-modialog-11';
 
 import { DemoHead } from './demo-head/index';
 

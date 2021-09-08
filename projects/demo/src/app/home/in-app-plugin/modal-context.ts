@@ -4,7 +4,7 @@ import {
   ModalOpenContextBuilder,
   ModalOpenContext,
   FluentAssignMethod
-} from 'ngx-modialog-7';
+} from 'ngx-modialog-11';
 
 
 export class InAppModalContext extends ModalOpenContext {
@@ -12,7 +12,7 @@ export class InAppModalContext extends ModalOpenContext {
   title: string;
   templateRef: TemplateRef<any>;
   normalize(): void {
-    if (!this.message) this.message = '';
+    if (!this.message) { this.message = ''; }
   }
 }
 

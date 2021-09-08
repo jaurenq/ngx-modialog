@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
-import { CSSDialogContainer, ModalOverlay } from 'ngx-modialog-7';
+import { CSSDialogContainer, ModalOverlay } from 'ngx-modialog-11';
 
 
 /**

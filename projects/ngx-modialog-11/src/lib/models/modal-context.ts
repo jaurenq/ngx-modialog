@@ -1,5 +1,5 @@
-import { FluentAssignMethod } from './../framework/fluent-assign';
-import { extend, arrayUnion } from './../framework/utils';
+import { FluentAssignMethod } from '../framework/fluent-assign';
+import { extend, arrayUnion } from '../framework/utils';
 import { OverlayContext, OverlayContextBuilder } from './overlay-context';
 
 export const DEFAULT_VALUES = {};

@@ -1,7 +1,7 @@
 import { Component, Compiler, NgModuleRef, ViewContainerRef } from '@angular/core';
 
-import { DialogRef, overlayConfigFactory } from "ngx-modialog-7";
-import { Modal, BSModalContext } from 'ngx-modialog-7/plugins/bootstrap';
+import { DialogRef, overlayConfigFactory } from "ngx-modialog-11";
+import { Modal, BSModalContext } from 'ngx-modialog-11/plugins/bootstrap';
 
 import { InnerRuntimeCompiledModule, InnerRuntimeCompiledComponent } from './inner-runtime-compiled';
 let runtimeModuleRefPromise: Promise<NgModuleRef<any>>;

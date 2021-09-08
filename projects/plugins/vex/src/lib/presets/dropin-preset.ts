@@ -2,7 +2,7 @@ import {
   DROP_IN_TYPE,
   FluentAssignMethod,
   extend
-} from 'ngx-modialog-7';
+} from 'ngx-modialog-11';
 import { Modal } from '../modal';
 import { DialogFormModal as component, FormDropIn as content } from '../dialog-form-modal';
 import { DialogPreset, DialogPresetBuilder } from './dialog-preset';

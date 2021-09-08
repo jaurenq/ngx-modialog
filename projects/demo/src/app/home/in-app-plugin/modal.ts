@@ -5,7 +5,7 @@ import {
   DialogRef,
   ContainerContent,
   Modal as Modal_
-} from 'ngx-modialog-7';
+} from 'ngx-modialog-11';
 
 import { InAppModalBackdrop } from './modal-backdrop';
 import { InAppModalContextBuilder } from './modal-context';

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {  trigger, style, keyframes, animate, transition } from '@angular/animations';
 
-import { DialogRef } from 'ngx-modialog-7';
+import { DialogRef } from 'ngx-modialog-11';
 import { InAppModalContext } from './modal-context';
 
 

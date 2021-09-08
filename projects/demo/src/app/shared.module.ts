@@ -11,7 +11,7 @@ import { DemoHead } from './demo-head/index';
   exports: [ DemoHead, ModalModule ]
 })
 export class SharedModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<any> {
     return {
       ngModule: SharedModule,
       providers: [

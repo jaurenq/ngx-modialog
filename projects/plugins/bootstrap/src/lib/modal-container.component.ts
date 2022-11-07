@@ -5,7 +5,7 @@ import {
   Renderer2
 } from '@angular/core';
 
-import { BaseDynamicComponent, DialogRef } from 'ngx-modialog-11';
+import { BaseDynamicComponent, DialogRef } from 'ngx-modialog-14';
 
 import { MessageModalPreset } from './presets/message-modal-preset';
 

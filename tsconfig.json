@@ -5,7 +5,7 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2020",
@@ -17,16 +17,16 @@
       "dom"
     ],
     "paths": {
-      "ngx-modialog-11": [
-        "projects/ngx-modialog-11/src/public_api.ts"
+      "ngx-modialog-14": [
+        "projects/ngx-modialog-14/src/public_api.ts"
       ],
-      "ngx-modialog-11/plugins/bootstrap": [
+      "ngx-modialog-14/plugins/bootstrap": [
         "projects/plugins/bootstrap/src/public_api.ts"
       ],
-      "ngx-modialog-11/plugins/vex": [
+      "ngx-modialog-14/plugins/vex": [
         "projects/plugins/vex/src/public_api.ts"
       ],
-      "ngx-modialog-11/plugins/js-native": [
+      "ngx-modialog-14/plugins/js-native": [
         "projects/plugins/js-native/src/public_api.ts"
       ]
     }

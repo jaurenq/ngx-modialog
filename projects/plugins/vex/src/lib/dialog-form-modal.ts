@@ -9,7 +9,7 @@ import {
 import {
   DialogRef,
   ModalComponent
-} from 'ngx-modialog-11';
+} from 'ngx-modialog-14';
 
 import { DialogPreset } from './presets/dialog-preset';
 import { DropInPreset } from './presets/dropin-preset';

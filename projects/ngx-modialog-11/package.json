@@ -1,7 +1,8 @@
 {
-  "name": "ngx-modialog-11",
+  "name": "ngx-modialog-14",
   "version": "9.0.1",
   "description": "Modal / Dialog for Angular",
+  "type":"module",
   "repository": {
     "type": "git",
     "url": "https://github.com/brakowski/ngx-modialog.git"

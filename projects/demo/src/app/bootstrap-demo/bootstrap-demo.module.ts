@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { BootstrapModalModule } from 'ngx-modialog-11/plugins/bootstrap';
+import { BootstrapModalModule } from 'ngx-modialog-14/plugins/bootstrap';
 import { SharedModule } from '../shared.module';
 
 

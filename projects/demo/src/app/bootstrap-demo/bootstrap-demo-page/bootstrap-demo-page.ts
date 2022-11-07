@@ -1,7 +1,7 @@
 import { Compiler, Component, Injector, TemplateRef, ViewChild, NgModuleRef } from '@angular/core';
 
-import { overlayConfigFactory } from "ngx-modialog-11";
-import { Modal, BSModalContext } from 'ngx-modialog-11/plugins/bootstrap';
+import { overlayConfigFactory } from "ngx-modialog-14";
+import { Modal, BSModalContext } from 'ngx-modialog-14/plugins/bootstrap';
 
 import { ModalCommandDescriptor } from '../../demo-head/index';
 import { CustomModal } from './custom-modal-sample';

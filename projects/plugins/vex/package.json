@@ -1,8 +1,9 @@
 {
-  "name": "ngx-modialog-11/plugins/vex",
+  "name": "ngx-modialog-14/plugins/vex",
+  "type": "module",
   "peerDependencies": {
     "@angular/common": "^11.2.12",
     "@angular/core": "^11.2.12",
-    "ngx-modialog-11": "*"
+    "ngx-modialog-14": "*"
   }
 }

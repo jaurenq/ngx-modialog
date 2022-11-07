@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { DialogRef, ModalComponent } from 'ngx-modialog-11';
+import { DialogRef, ModalComponent } from 'ngx-modialog-14';
 
 import { MessageModalPreset } from './presets/message-modal-preset';
 

@@ -1,8 +1,9 @@
 {
-  "name": "ngx-modialog-11/plugins/js-native",
+  "name": "ngx-modialog-14/plugins/js-native",
+  "type":"module",
   "peerDependencies": {
     "@angular/common": "^11.2.12",
     "@angular/core": "^11.2.12",
-    "ngx-modialog-11": "*"
+    "ngx-modialog-14": "*"
   }
 }

@@ -292,7 +292,6 @@
       }
     }
   },
-  "defaultProject": "demo",
   "cli": {
     "packageManager": "yarn"
   }
